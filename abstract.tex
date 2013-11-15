@@ -45,30 +45,35 @@
 
 
 %%%%%  The title of your contribution in all capital letters.
-\title{TITLE OF YOUR CONTRIBUTION}
+\title{ASTRONOMICAL INFERENCE WITH DIFFUSIVE NESTED SAMPLING}
 
 %%%%%  Author's name (underline presenter's author)            
-\author{\underline{F. Author}$^{1,2}$, S. Author$^{3}$\\
-        (1) First Institution\\
-        (2) Second Institution\\
-        (3) Third Institution\\
-        (You might put here additional information: e-mail,
-         URL, etc)
+\author{\underline{Brendon J. Brewer}$^{1}$\\
+        (1) Department of Statistics, The University of Auckland\\
+	\\
+        {\tt http://stat.auckland.ac.nz/\~{ }brewer/}
        }
 
-\date{date}
+\date{}
 \maketitle
 
 %%%%%               Abstract begins here                      
 \begin{abstract}
 \noindent
-In this work we show how to calculate the answer to the Ultimate Question of Life, the Universe and Everything using a combination of Bayes rule and MaxEnt:
-\begin{gather}
-P(H|D,I) = \frac{P(D|H,I) \, P(H|I)}{P(D|I)}
-\\
-\mathcal{H} = - \sum_i p_i \ln \frac{p_i}{q_i}
-\end{gather}
-and a very large organic computer.
+
+Many standard problems in astronomy (e.g. the processing of images to produce
+``catalogs'') are best understood as inference problems. In principle at least,
+we should calculate the posterior distribution over a suitable hypothesis space,
+rather than inventing ad-hoc procedures.
+
+I will describe the Diffusive Nested Sampling method, which is a variant of
+Nested Sampling that retains the flexibility of Markov Chain Monte Carlo
+exploration of the hypothesis space.
+
+Talk about the StarField project
+Talk about Reverberation Mapping
+Talk about how Nested Sampling is hard when you need to compress so far
+Talk about reversible jump
 
 %%%%%       OPTIONAL: Figure (delete if not used)                                                 
 %%%%%       Do not add a figure caption.
@@ -98,7 +103,7 @@ and a very large organic computer.
 
 %%%%%       OPTIONAL: Key Words (delete if not used)   
 \medskip\noindent{Key Words: }
-{Jaynes, Deep Thought, Marsupials}
+{Bayesian Inference, Markov Chain Monte Carlo}
 %%%%%        END of Key Words
 
 \end{abstract}
