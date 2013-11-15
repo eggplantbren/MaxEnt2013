@@ -1,0 +1,108 @@
+%%%%%  LaTeX template for submission of abstracts to  MaxEnt 2013         
+%%%%%                                                         
+%%%%% Use this template to generate a pdf version of your abstract for submission. This is 
+%%%%% most easily accomplished using a LaTeX compiler that outputs directly to pdf.
+%%%%%                                      
+%%%%% Your abstract may be no more that one page in length and that all text and figures must                                                      
+%%%%% fit in a 16.0 cm x 23.0 cm frame. 
+%%%%%                                          
+%%%%% When you submit the pdf version of your abstract on the conference web site
+%%%%% you will be ask if your are requesting an Oral presentation or a Poster.  You will                             
+%%%%% also be ask it this is a student presentation.                                          
+%%%%%                                                                
+                                                      
+%%%%% Do not change the text size in the line below.
+\documentclass[letterpaper,12pt]{article}
+%\documentclass[final,onecolumn]{aipproc}
+%\layoutstyle{6x9}
+
+%%%%%  If you chose not to include the optional figure then you can delete the line below.
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+%\usepackage{empheq}   %boxes around equations
+%\usepackage{multicol}        % used for the two-column index
+%\usepackage[bottom]{footmisc}	% places footnotes at page bottom
+%\usepackage{epstopdf} 	%essential with TeXShop on Mac
+%\usepackage{longtable} 	%long tables
+%\usepackage{esint}  	%multiple integral fonts
+%\usepackage{stmaryrd} 	%floor, ceiling symbol font
+
+%\hyphenation{MaxEnt}
+
+%%%%% Page size and layout commands. Do not change lines below below.
+\textwidth16cm
+\textheight23cm
+\topmargin-2.0cm
+\oddsidemargin0cm
+\parindent0pt
+%\pagestyle{empty}
+%%%%% End of Page size and layout commands.
+
+
+\begin{document}
+
+
+%%%%%  The title of your contribution in all capital letters.
+\title{TITLE OF YOUR CONTRIBUTION}
+
+%%%%%  Author's name (underline presenter's author)            
+\author{\underline{F. Author}$^{1,2}$, S. Author$^{3}$\\
+        (1) First Institution\\
+        (2) Second Institution\\
+        (3) Third Institution\\
+        (You might put here additional information: e-mail,
+         URL, etc)
+       }
+
+\date{date}
+\maketitle
+
+%%%%%               Abstract begins here                      
+\begin{abstract}
+\noindent
+In this work we show how to calculate the answer to the Ultimate Question of Life, the Universe and Everything using a combination of Bayes rule and MaxEnt:
+\begin{gather}
+P(H|D,I) = \frac{P(D|H,I) \, P(H|I)}{P(D|I)}
+\\
+\mathcal{H} = - \sum_i p_i \ln \frac{p_i}{q_i}
+\end{gather}
+and a very large organic computer.
+
+%%%%%       OPTIONAL: Figure (delete if not used)                                                 
+%%%%%       Do not add a figure caption.
+%%%%%       The conference program will not be printed in colour so colour figures should not be used.
+%%%%%       The example figure is in pdf format.     
+
+%\begin{figure}[h]
+%\begin{center}
+%\includegraphics[width=70mm]{roo}
+%\end{center}
+%%\caption{blah blah.}
+%%\label{fig:roo}
+%\end{figure}
+%%%%%        End of Figure
+
+
+%%%%%       OPTIONAL: References (delete  if not used)   
+%%%%%       Separate each reference with a blank line.                                                                
+\medskip\noindent{References: }
+
+[1] A. Dent et al. Phys. Rev. {\bf E99}, 99998 (2009).
+
+[2] Z. Beeblebrox et al. Phys. Rev. {\bf E99}, 99999 (2009).
+%%%%%        END of References
+
+
+
+%%%%%       OPTIONAL: Key Words (delete if not used)   
+\medskip\noindent{Key Words: }
+{Jaynes, Deep Thought, Marsupials}
+%%%%%        END of Key Words
+
+\end{abstract}
+\thispagestyle{empty}
+\end{document}
+
+\endinput
