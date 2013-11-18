@@ -66,16 +66,17 @@ In principle at least,
 we should calculate the posterior distribution over a suitable hypothesis space,
 rather than inventing ad-hoc procedures. I will describe two recent applications
 of this idea: i) inferring the properties of active galactic nuclei (AGN)
-from reverberation mapping data, and ii) producing ``catalogs'' from images of
+from reverberation mapping data, and ii) producing catalogs (lists of objects
+and their properties) from images of
 crowded stellar fields. The first application allows us to measure the masses
 of black holes and to infer the dynamical state of the matter surrounding them,
 making the most of the large amount of telescope time required. The second
 application has the potential to enable the study of faint objects that are not
 even ``detected'' by standard algorithms.
-To implement these models we used the ``Diffusive Nested Sampling'' algorithm,
+To implement these models we used the Diffusive Nested Sampling algorithm,
 which is a variant of Nested Sampling that was invented at MaxEnt 2009. The
 algorithm naturally allows for unknown numbers of parameters since
-``reversible jump MCMC'' can be used inside of it. However, there are
+``reversible jump'' MCMC can be used inside of it. However, there are
 computational challenges involved when the posterior distribution is highly
 compressed with respect to the prior distribution.
 
