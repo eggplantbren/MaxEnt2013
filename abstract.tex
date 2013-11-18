@@ -45,7 +45,7 @@
 
 
 %%%%%  The title of your contribution in all capital letters.
-\title{ASTRONOMICAL INFERENCE WITH DIFFUSIVE NESTED SAMPLING}
+\title{COMPUTING ASTROPHYSICAL INFERENCES WITH DIFFUSIVE NESTED SAMPLING}
 
 %%%%%  Author's name (underline presenter's author)            
 \author{\underline{Brendon J. Brewer}$^{1}$\\
@@ -61,49 +61,44 @@
 \begin{abstract}
 \noindent
 
-Many standard problems in astronomy (e.g. the processing of images to produce
-``catalogs'') are best understood as inference problems. In principle at least,
+Many standard problems in astronomy are best understood as inference problems.
+In principle at least,
 we should calculate the posterior distribution over a suitable hypothesis space,
-rather than inventing ad-hoc procedures.
-
-I will describe the Diffusive Nested Sampling method, which is a variant of
-Nested Sampling that retains the flexibility of Markov Chain Monte Carlo
-exploration of the hypothesis space.
-
-Talk about the StarField project
-Talk about Reverberation Mapping
-Talk about how Nested Sampling is hard when you need to compress so far
-Talk about reversible jump
-
-%%%%%       OPTIONAL: Figure (delete if not used)                                                 
-%%%%%       Do not add a figure caption.
-%%%%%       The conference program will not be printed in colour so colour figures should not be used.
-%%%%%       The example figure is in pdf format.     
-
-%\begin{figure}[h]
-%\begin{center}
-%\includegraphics[width=70mm]{roo}
-%\end{center}
-%%\caption{blah blah.}
-%%\label{fig:roo}
-%\end{figure}
-%%%%%        End of Figure
+rather than inventing ad-hoc procedures. I will describe two recent applications
+of this idea: i) inferring the properties of active galactic nuclei (AGN)
+from reverberation mapping data, and ii) producing ``catalogs'' from images of
+crowded stellar fields. The first application allows us to measure the masses
+of black holes and to infer the dynamical state of the matter surrounding them,
+making the most of the large amount of telescope time required. The second
+application has the potential to enable the study of faint objects that are not
+even ``detected'' by standard algorithms.
+To implement these models we used the ``Diffusive Nested Sampling'' algorithm,
+which is a variant of Nested Sampling that was invented at MaxEnt 2009. The
+algorithm naturally allows for unknown numbers of parameters since
+``reversible jump MCMC'' can be used inside of it. However, there are
+computational challenges involved when the posterior distribution is highly
+compressed with respect to the prior distribution.
 
 
-%%%%%       OPTIONAL: References (delete  if not used)   
-%%%%%       Separate each reference with a blank line.                                                                
+\vspace{1cm}
 \medskip\noindent{References: }
 
-[1] A. Dent et al. Phys. Rev. {\bf E99}, 99998 (2009).
+[1] {\it Diffusive Nested Sampling}\\
+Brendon J. Brewer, Livia B. P{\'a}rtay, Gabor Cs{\'a}nyi,
+Statistics and Computing, 2011, 21, 4, 649-656.\\
 
-[2] Z. Beeblebrox et al. Phys. Rev. {\bf E99}, 99999 (2009).
+[2] {\it Geometric and Dynamical Models of Reverberation Mapping Data}\\
+Anna Pancoast, Brendon J. Brewer, Tommaso Treu, 2011, ApJ, 730, 139.\\
+
+[3] {\it Probabilistic Catalogs for Crowded Stellar Fields}\\
+Brendon J. Brewer, Daniel Foreman-Mackey, David W. Hogg, 2013, AJ, 146, 7.\\
 %%%%%        END of References
 
 
 
 %%%%%       OPTIONAL: Key Words (delete if not used)   
 \medskip\noindent{Key Words: }
-{Bayesian Inference, Markov Chain Monte Carlo}
+{Astrophysics, Bayesian Inference, Markov Chain Monte Carlo}
 %%%%%        END of Key Words
 
 \end{abstract}
