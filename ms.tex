@@ -1,37 +1,168 @@
-\documentclass[letterpaper, 11pt]{article}
-\usepackage{graphicx}
-\usepackage{natbib}
-\usepackage[left=3cm,top=3cm,right=3cm]{geometry}
+%%
+%% This is file `template-8s.tex',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% template.raw  (with options: `8s')
+%% 
+%% Template for the LaTeX class aipproc.
+%% 
+%% (C) 1998,2000,2001 American Institute of Physics and Frank Mittelbach
+%% All rights reserved
+%% 
+%%
+%% $Id: template.raw,v 1.12 2005/07/06 19:22:14 frank Exp $
+%%
 
-\renewcommand{\topfraction}{0.85}
-\renewcommand{\textfraction}{0.1}
-\parindent=0cm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Please remove the next line of code if you
+%% are satisfied that your installation is
+%% complete and working.
+%%
+%% It is only there to help you in detecting
+%% potential problems.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\title{Document Title}
-\author{Brendon J. Brewer}
+\input{aipcheck}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% SELECT THE LAYOUT
+%%
+%% The class supports further options.
+%% See aipguide.pdf for details.
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[
+    ,final            % use final for the camera ready runs
+%%  ,draft            % use draft while you are working on the paper
+%%  ,numberedheadings % uncomment this option for numbered sections
+%%  ,                 % add further options here if necessary
+  ]
+  {aipproc}
+
+\layoutstyle{8x11single}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% FRONTMATTER
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
+
+\title{Computing astrophysical inferences with diffusive nested sampling}
+
+\classification{<Replace this text with PACS numbers; choose from this list:
+                \texttt{http://www.aip..org/pacs/index.html}>}
+\keywords      {<Enter Keywords here>}
+
+\author{Brendon J. Brewer}{
+  address={http://stat.auckland.ac.nz/~brewer/}
+}
+
+\author{<author2>}{
+  address={<common address for author2 and author3>}
+}
+
+\author{<author3>}{
+  address={<common address for author2 and author3>}
+  ,altaddress={<author1 address>} % additional visiting address
+}
+
+
+\begin{abstract}
+The abstract.
+\end{abstract}
+
 \maketitle
 
-\abstract{Many standard problems in astronomy are best understood as inference problems.
-In principle at least,
-we should calculate the posterior distribution over a suitable hypothesis space,
-rather than inventing ad-hoc procedures. I will describe two recent applications
-of this idea: i) inferring the properties of active galactic nuclei (AGN)
-from reverberation mapping data, and ii) producing catalogs (lists of objects
-and their properties) from images of
-crowded stellar fields. The first application allows us to measure the masses
-of black holes and to infer the dynamical state of the matter surrounding them,
-making the most of the large amount of telescope time required. The second
-application has the potential to enable the study of faint objects that are not
-even ``detected'' by standard algorithms.
-To implement these models we used the Diffusive Nested Sampling algorithm,
-which is a variant of Nested Sampling that was invented at MaxEnt 2009. The
-algorithm naturally allows for unknown numbers of parameters since
-``reversible jump'' MCMC can be used inside of it. However, there are
-computational challenges involved when the posterior distribution is highly
-compressed with respect to the prior distribution.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% MAINMATTER
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Introduction}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% BACKMATTER
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{theacknowledgments}
+Acknowledgements.
+\end{theacknowledgments}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% The bibliography can be prepared using the BibTeX program or
+%% manually.
+%%
+%% The code below assumes that BibTeX is used.  If the bibliography is
+%% produced without BibTeX comment out the following lines and see the
+%% aipguide.pdf for further information.
+%%
+%% For your convenience a manually coded example is appended
+%% after the \end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% You may have to change the BibTeX style below, depending on your
+%% setup or preferences.
+%%
+%%
+%% For The AIP proceedings layouts use either
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\bibliographystyle{aipproc}   % if natbib is available
+%\bibliographystyle{aipprocl} % if natbib is missing
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% You probably want to use your own bibtex database here
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\bibliography{sample}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Just a reminder that you may have to run bibtex
+%%% All of it up to \end{document} can be removed
+%%% if you don't like the warning.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\IfFileExists{\jobname.bbl}{}
+% {\typeout{}
+%  \typeout{******************************************}
+%  \typeout{** Please run "bibtex \jobname" to optain}
+%  \typeout{** the bibliography and then re-run LaTeX}
+%  \typeout{** twice to fix the references!}
+%  \typeout{******************************************}
+%  \typeout{}
+% }
 
 \end{document}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% The following lines show an example how to produce a bibliography
+%% without the help of the BibTeX program. This could be used instead
+%% of the above.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{thebibliography}{9}
+
+\bibitem{Brown2000}
+M.~P. Brown,  and K.~Austin, \emph{The New Physique}, Publisher Name,
+  Publisher City, 2000, pp. 212--213.
+
+\bibitem{BrownAustin:2000}
+M.~P. Brown,  and K.~Austin, \emph{Appl. Phys. Letters} \textbf{85},
+  2503--2504 (2000).
+
+\bibitem{Wang}
+R.~Wang, ``Title of Chapter,'' in \emph{Classic Physiques}, edited by
+  R.~B. Hamil, Publisher Name, Publisher City, 2000, pp. 212--213.
+
+\bibitem{SJ:1999}
+C.~D.~Smith and E.~F.~Jones,  ``Load-Cycling in Cubic Press,'' in
+  \emph{Shock Compression of Condensed Matter-1999}, edited by M.~D.~F. et~al.,
+  AIP Conference Proceedings 505, American Institute of Physics, New York,
+  1999, pp. 651--654.
+
+\end{thebibliography}
+
+\endinput
+%%
+%% End of file `template-8s.tex'.
