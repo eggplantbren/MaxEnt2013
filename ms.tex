@@ -43,6 +43,10 @@
   {aipproc}
 
 \layoutstyle{8x11single}
+\usepackage{amsmath}
+
+\newcommand{\pars}{\boldsymbol{\theta}}
+\newcommand{\data}{\mathbf{x}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% FRONTMATTER
@@ -90,6 +94,13 @@ compressed with respect to the prior distribution.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Introduction}
+
+A joint prior is assigned on the hypothesis space of possible $\pars$ values
+and possible data sets $\data$:
+
+\begin{eqnarray}
+p(\pars, \data) &=& p(\pars) p(\data | \pars)
+\end{eqnarray}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% BACKMATTER
