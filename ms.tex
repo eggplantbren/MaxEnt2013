@@ -113,6 +113,11 @@ this is not a ``derivation'' of Bayesian updating as the rules of probability
 already imply a commitment to update to $p(\pars | \data)$ once $\data$ becomes
 known (what else could a conditional probability be?).
 
+\section{Diffusive Nested Sampling}
+DNS is essentially just the Metropolis algorithm. However, instead of the
+target distribution being the posterior $p(\pars|\data)$, it is the mixture
+of constrained priors.
+
 \section{Probabilistic Catalogs}
 The hypothesis space is the set of possible answers to the question
 ``how many objects are there, and what are their properties (positions, fluxes,
@@ -135,8 +140,10 @@ interpretations of this procedure which may lead the way to less subjective
 approaches.
 Using DNS we explore the mixture of constrained priors.
 \begin{eqnarray}
-p_{\rm DNS}(\theta) &=& \sum_{i=1}^n p(\theta)\mathds{1}\left[\mathcal{L} > L^*_i\right]
+p_{\rm DNS}(\theta) &=& \frac{1}{n}\sum_{i=1}^n
+\frac{p(\theta)\mathds{1}\left[L(\theta) > L^*_i\right]}{X_i}
 \end{eqnarray}
+where $X_i \approx e^{-i}$ by construction.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% BACKMATTER
