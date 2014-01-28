@@ -97,31 +97,48 @@ compressed with respect to the prior distribution.
 \section{Introduction}
 The major goal of astronomy, as with most sciences, is to understand the
 universe as well as we can while recognising that we will never have all of
-the relevant information that we might want. 
-
-In many subfields within astronomy, Bayesian inference has (rightfully)
+the relevant information that we might want. Probability theory is the
+appropriate framework for describing and quantifying uncertainty
+\citep{cox, jaynes}. In recent years, Bayesian inference has (rightfully)
 become the dominant framework for analysing data and quantifying the
-plausibility of hypotheses about the universe \citep[e.g.][]{refs}.
+plausibility of hypotheses about the universe, and has displaced
+more ad-hoc methodologies in many subfields of
+astronomy \citep[e.g.][]{examples}.
 
-
-The first step is to construct a set of possible answers to the question of
+Bayesian inference is usually performed by
+constructing a set of possible answers to the question of
 interest, that is, the ``hypothesis space'', indexed by parameters $\pars$.
-A space of possible data sets $\data$ is considered, and a joint prior is
-assigned:
+A state of prior knowledge about the parameters is described by assigning a
+prior distribution $p(\pars)$. Some relevant data $\data$ is about to become
+known, and prior knowledge about a connection between $\theta$ and $\data$ is
+expressed by a choice of ``sampling distribution'' $p(\data | \theta)$, which
+is really a family of probability distributions, one for each possible value of
+$\theta$.
+
+By the product rule, the joint (prior) distribution is
 \begin{eqnarray}
 p(\pars, \data) = p(\pars) p(\data | \pars) = p(\data)p(\pars | \data)
 \end{eqnarray}
-The marginal distribution $p(\pars)$, which is usually called the ``prior'',
-describes initial uncertainty about the value of the parameters. When the
+When the
 data $\data$ becomes known, our state of knowledge about $\pars$ changes
-from the marginal $p(\pars)$ to the conditional distribution $p(\pars | \data)$
-that corresponds to the observed data, usually called the ``posterior''.
+from the marginal $p(\pars)$ to the conditional distribution
+$p(\pars | \data_{\rm actual})$
+that corresponds to the observed data. The distribution
+$p(\pars | \data_{\rm actual})$
+called the ``posterior''.
 Incidentally, Bayesian inference can be understood as a special case of
 MaxEnt updating, starting from the joint prior $p(\pars, \data)$ and applying
 the constraint $P(\data = \data_{\rm actual}) = 1$ \citep{caticha}. Note that
 this is not a ``derivation'' of Bayesian updating as the rules of probability
-already imply a commitment to update to $p(\pars | \data)$ once $\data$ becomes
-known (what else could a conditional probability be?).
+already imply a commitment to update from $p(\theta)$ to $p(\theta | \data)$
+once $\data$ becomes known.
+
+Computing the consequences of a posterior distribution can be a challenging
+task. Usually we want to marginalise out nuisance parameters, to compute
+particular posterior probabilities such as $P(\theta > 1.5)$, or to summarise
+the posterior distribution for easy communication with others.
+Markov Chain Monte Carlo (MCMC) algorithms provide a general set of tools
+for achieving these goals.
 
 \section{Diffusive Nested Sampling}
 DNS is essentially just the Metropolis algorithm. However, instead of the
