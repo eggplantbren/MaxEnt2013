@@ -138,7 +138,10 @@ task. Usually we want to marginalise out nuisance parameters, to compute
 particular posterior probabilities such as $P(\theta > 1.5)$, or to summarise
 the posterior distribution for easy communication with others.
 Markov Chain Monte Carlo (MCMC) algorithms provide a general set of tools
-for achieving these goals.
+for achieving these goals. However, many standard MCMC algorithms are not
+capable of exploring complicated probability distributions in a reasonable time.
+Problems often occur due to multimodality, strong dependencies, and phase
+transitions.
 
 \section{Diffusive Nested Sampling}
 DNS is essentially just the Metropolis algorithm. However, instead of the
