@@ -143,8 +143,18 @@ capable of exploring complicated probability distributions in a reasonable time.
 Problems often occur due to multimodality, strong dependencies, and phase
 transitions.
 
-\section{Diffusive Nested Sampling}
-DNS is essentially just the Metropolis algorithm. However, instead of the
+\section{Nested sampling}
+The key idea of Nested Sampling \citep{skilling} is that Bayesian computation
+should start from the prior $\pi(\pars)$ and move through a sequence of
+distributions that successively compress the prior volume by a constant factor
+that is (approximately) known.
+
+\subsection{MCMC inside nested sampling}
+
+\section{Diffusive nested sampling}
+Diffusive Nested Sampling (DNS) is an alternative to the use of MCMC inside of
+standard Nested Sampling. DNS is essentially just the Metropolis algorithm.
+However, instead of the
 target distribution being the posterior $p(\pars|\data)$, the algorithm
 constructs and then samples a ``mixture of constrained priors'':
 
@@ -167,10 +177,10 @@ The hypothesis space is the set of possible answers to the question
 etc)''.
 
 
-\section{Reverberation Mapping}
-Many objects in the universe are too distant to resolve, so we cannot simply
-``see'' what is going on. Rather we must infer what is going on. Active Galactic
-Nuclei (AGN) are a good example.
+%\section{Reverberation Mapping}
+%Many objects in the universe are too distant to resolve, so we cannot simply
+%``see'' what is going on. Rather we must infer what is going on. Active Galactic
+%Nuclei (AGN) are a good example.
 
 \subsection{Models with known oversimplifications}
 Computing the posterior $p(\pars | \data)$ would yield overconfident results
