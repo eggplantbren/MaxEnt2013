@@ -150,6 +150,17 @@ distributions that successively compress the prior volume by a constant factor
 that is (approximately) known.
 
 \subsection{MCMC inside nested sampling}
+The main challenge in Nested Sampling is to generate new points from the
+constrained prior distribution $\propto \pi(\pars)\mathds{1}(L(\pars) > L^*)$.
+Two popular strategies are in use. The first is to use the remaining ``live
+points'', which are known to be above the likelihood threshold $L^*$, to build
+an approximation to the constrained prior, which can then be used to generate
+a new point via rejection sampling \citep{multinest}.
+
+The second common strategy is to use MCMC. Since the remaining live points are
+known to exceed the likelihood threshold, they can be used to initialise an
+MCMC run. This strategy is very simple but has known issues.
+
 
 \section{Diffusive nested sampling}
 Diffusive Nested Sampling (DNS) is an alternative to the use of MCMC inside of
