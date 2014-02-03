@@ -190,7 +190,10 @@ likelihood is greater than a threshold $L^*_1$. The second mixture component
 is the prior, but restricted to the domain where the likelihood is above
 $L^*_2$. The likelihood thresholds $\{ L^*_i \}$ are chosen so each
 successive constrained prior occupies approximately $\exp(-1)$ times as much
-prior mass (``volume'') as the previous constrained prior.
+prior mass (``volume'') as the previous constrained prior. This is strongly
+related to the algorithm known as ``simulated tempering''
+\citep{simulated_tempering}, but uses NS's
+sequence of intermediate distributions instead of an annealed sequence.
 
 \section{Probabilistic Catalogs}
 The hypothesis space is the set of possible answers to the question
