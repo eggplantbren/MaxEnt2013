@@ -149,18 +149,21 @@ distributions that successively compress the prior volume by a constant factor
 that is (approximately) known.
 
 
-
 \subsection{MCMC inside nested sampling}
 The main challenge in Nested Sampling is to generate new points from the
 constrained prior distribution $\propto \pi(\pars)\mathds{1}(L(\pars) > L^*)$.
 Two popular strategies are in use. The first is to use the remaining ``live
 points'', which are known to be above the likelihood threshold $L^*$, to build
 an approximation to the constrained prior, which can then be used to generate
-a new point via rejection sampling \citep{multinest}.
+a new point via rejection sampling, as implemented in the
+{\tt MultiNest} program \citep{multinest}.
 
-The second common strategy is to use MCMC. Since the remaining live points are
-known to exceed the likelihood threshold, they can be used to initialise an
-MCMC run. This strategy is very simple but has known problems. For example,
+The second common strategy is to use MCMC. Since all of the Nested Sampling
+points are
+known to exceed the likelihood threshold (which is defined using the lowest
+point), they can be used to initialise an
+MCMC run. This strategy is very simple to implement but can have
+serious problems. For example,
 suppose the likelihood function has two separate modes, and it impossible for
 MCMC to mix between the two modes. Suppose also that NS is being run with two
 points, and there is one point in each mode. The worst point will be discarded
@@ -168,10 +171,6 @@ points, and there is one point in each mode. The worst point will be discarded
 copying the other point and running MCMC. However, even though the two modes
 are completely equivalent, the copying operation will remove one of the modes,
 and it will never return.
-
-
-
-
 
 \section{Diffusive nested sampling}
 Diffusive Nested Sampling (DNS) is an alternative to the use of MCMC inside of
@@ -195,6 +194,7 @@ prior mass (``volume'') as the previous constrained prior. This is strongly
 related to the algorithm known as ``simulated tempering''
 \citep{simulated_tempering}, but uses NS's
 sequence of intermediate distributions instead of an annealed sequence.
+Retaining ``old'' distributions in the mixture allows 
 
 \section{Probabilistic Catalogs}
 The hypothesis space is the set of possible answers to the question
