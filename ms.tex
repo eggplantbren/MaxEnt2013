@@ -139,13 +139,16 @@ Markov Chain Monte Carlo (MCMC) algorithms provide a general set of tools
 for achieving these goals. However, many standard MCMC algorithms are not
 capable of exploring complicated probability distributions in a reasonable time.
 Problems often occur due to multimodality, strong dependencies, and phase
-transitions.
+transitions. Many different solutions have been suggested for overcoming these
+challenges. In this paper we will focus on Nested Sampling \citep{skilling}.
 
 \section{Nested sampling}
 The key idea of Nested Sampling \citep{skilling} is that Bayesian computation
-should start from the prior $\pi(\pars)$ and move through a sequence of
+should begin from the prior $\pi(\pars)$ and move through a sequence of
 distributions that successively compress the prior volume by a constant factor
 that is (approximately) known.
+
+
 
 \subsection{MCMC inside nested sampling}
 The main challenge in Nested Sampling is to generate new points from the
