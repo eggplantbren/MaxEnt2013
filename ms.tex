@@ -45,6 +45,7 @@
 \layoutstyle{8x11single}
 \usepackage{amsmath}
 \usepackage{dsfont}
+\usepackage{natbib}
 
 \newcommand{\pars}{\boldsymbol{\theta}}
 \newcommand{\data}{\mathbf{x}}
@@ -71,16 +72,14 @@ http://www.stat.auckland.ac.nz/\~{ }brewer/}
 Many standard problems in astronomy are best understood as inference problems.
 In principle at least,
 we should calculate the posterior distribution over a suitable hypothesis space,
-rather than inventing ad-hoc procedures. I will describe two recent applications
-of this idea: i) inferring the properties of active galactic nuclei (AGN)
-from reverberation mapping data, and ii) producing catalogs (lists of objects
+rather than inventing ad-hoc procedures. I will describe a recent application
+of this idea to the challenging astronomical problem of
+producing catalogs (lists of objects
 and their properties) from images of
-crowded stellar fields. The first application allows us to measure the masses
-of black holes and to infer the dynamical state of the matter surrounding them,
-making the most of the large amount of telescope time required. The second
-application has the potential to enable the study of faint objects that are not
+crowded stellar fields. This approach
+has the potential to enable the study of faint objects that are not
 even ``detected'' by standard algorithms.
-To implement these models we used the Diffusive Nested Sampling algorithm,
+To implement the model we used the Diffusive Nested Sampling algorithm,
 which is a variant of Nested Sampling that was invented at MaxEnt 2009. The
 algorithm naturally allows for unknown numbers of parameters since
 ``reversible jump'' MCMC can be used inside of it. However, there are
@@ -103,7 +102,8 @@ appropriate framework for describing and quantifying uncertainty
 become the dominant framework for analysing data and quantifying the
 plausibility of hypotheses about the universe, and has displaced
 more ad-hoc methodologies in many subfields of
-astronomy \citep[e.g.][]{examples}.
+astronomy \citep[e.g.][]{2014MNRAS.438..768S, 2014MNRAS.437.3540F,
+2014MNRAS.437.3004L}.
 
 Bayesian inference is usually performed by
 constructing a set of possible answers to the question of
@@ -113,18 +113,16 @@ prior distribution $p(\pars)$. Some relevant data $\data$ is about to become
 known, and prior knowledge about a connection between $\theta$ and $\data$ is
 expressed by a choice of ``sampling distribution'' $p(\data | \theta)$, which
 is really a family of probability distributions, one for each possible value of
-$\theta$.
-
-By the product rule, the joint (prior) distribution is
+$\theta$. By the product rule, the joint (prior) distribution is
 \begin{eqnarray}
 p(\pars, \data) = p(\pars) p(\data | \pars) = p(\data)p(\pars | \data)
 \end{eqnarray}
 When the
 data $\data$ becomes known, our state of knowledge about $\pars$ changes
-from the marginal $p(\pars)$ to the conditional distribution
+from the marginal distribution $p(\pars)$ to the conditional distribution
 $p(\pars | \data_{\rm actual})$
 that corresponds to the observed data. The distribution
-$p(\pars | \data_{\rm actual})$
+$p(\pars | \data_{\rm actual})$ is
 called the ``posterior''.
 Incidentally, Bayesian inference can be understood as a special case of
 MaxEnt updating, starting from the joint prior $p(\pars, \data)$ and applying
@@ -198,7 +196,7 @@ sequence of intermediate distributions instead of an annealed sequence.
 \section{Probabilistic Catalogs}
 The hypothesis space is the set of possible answers to the question
 ``how many objects are there, and what are their properties (positions, fluxes,
-etc)''.
+etc)'' \citep{starfield}.
 
 
 %\section{Reverberation Mapping}
@@ -270,6 +268,58 @@ Acknowledgements.
 %  \typeout{}
 % }
 
+\begin{thebibliography}{9}
+
+\bibitem[Brewer et al.(2013)]{starfield} Brewer, B.~J., 
+Foreman-Mackey, D., Hogg, D.~W.\ 2013.\ Probabilistic Catalogs for Crowded 
+Stellar Fields.\ The Astronomical Journal 146, 7. 
+
+\bibitem[Brewer et al.(2011)]{dnest}
+Brewer, B.~J., P\'{a}rtay, L.~B., Cs\'{a}nyi, G.\ 2011.\
+Diffusive Nested Sampling.\ Statistics and Computing, 2011, 21, 4, 649-656.
+
+\bibitem[Caticha(2008)]{caticha} Caticha, A.\ 2008.\ Lectures 
+on Probability, Entropy, and Statistical Physics.\ ArXiv e-prints 
+arXiv:0808.0012. 
+
+\bibitem[Cox(1946)]{cox} Cox, R.~T.\ 1946.\ Probability, 
+Frequency and Reasonable Expectation.\ American Journal of Physics 14, 
+1-13. 
+
+\bibitem[Feroz et al.(2009)]{multinest} Feroz, F., Hobson, M.~P., 
+Bridges, M.\ 2009.\ MULTINEST: an efficient and robust Bayesian inference 
+tool for cosmology and particle physics.\ Monthly Notices of the Royal 
+Astronomical Society 398, 1601-1614. 
+
+\bibitem[Feroz and Hobson(2014)]{2014MNRAS.437.3540F} Feroz, F., Hobson, 
+M.~P.\ 2014.\ Bayesian analysis of radial velocity data of GJ667C with 
+correlated noise: evidence for only two planets.\ Monthly Notices of the 
+Royal Astronomical Society 437, 3540-3549. 
+
+\bibitem[Jaynes and Bretthorst(2003)]{jaynes} Jaynes, E.~T., 
+Bretthorst, G.~L.\ 2003.\ Probability Theory.\ Probability Theory, by 
+E.~T.~Jaynes and Edited by G.~Larry Bretthorst, pp.~758.~ISBN 
+0521592712.~Cambridge, UK: Cambridge University Press, June 2003.\ . 
+
+\bibitem[Lentati et al.(2014)]{2014MNRAS.437.3004L} Lentati, L., Alexander, 
+P., Hobson, M.~P., Feroz, F., van Haasteren, R., Lee, K.~J., Shannon, 
+R.~M.\ 2014.\ TEMPONEST: a Bayesian approach to pulsar timing analysis.\ 
+Monthly Notices of the Royal Astronomical Society 437, 3004-3023. 
+
+\bibitem[Marinari and Parisi(1992)]{simulated_tempering} Marinari, E., 
+Parisi, G.\ 1992.\ Simulated tempering: a new Monte Carlo scheme.\ EPL 
+(Europhysics Letters) 19, 451. 
+
+\bibitem[\protect\citeauthoryear{Skilling}{2006}]{skilling} Skilling, J., 2006, Nested Sampling for General Bayesian Computation, Bayesian Analysis 4, pp. 833-860.
+
+\bibitem[Sutter et al.(2014)]{2014MNRAS.438..768S} Sutter, P.~M., Wandelt, 
+B.~D., McEwen, J.~D., Bunn, E.~F., Karakci, A., Korotkov, A., Timbie, P., 
+Tucker, G.~S., Zhang, L.\ 2014.\ Probabilistic image reconstruction for 
+radio interferometers.\ Monthly Notices of the Royal Astronomical Society 
+438, 768-778. 
+
+\end{thebibliography}
+
 \end{document}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -278,27 +328,7 @@ Acknowledgements.
 %% of the above.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{thebibliography}{9}
 
-\bibitem{Brown2000}
-M.~P. Brown,  and K.~Austin, \emph{The New Physique}, Publisher Name,
-  Publisher City, 2000, pp. 212--213.
-
-\bibitem{BrownAustin:2000}
-M.~P. Brown,  and K.~Austin, \emph{Appl. Phys. Letters} \textbf{85},
-  2503--2504 (2000).
-
-\bibitem{Wang}
-R.~Wang, ``Title of Chapter,'' in \emph{Classic Physiques}, edited by
-  R.~B. Hamil, Publisher Name, Publisher City, 2000, pp. 212--213.
-
-\bibitem{SJ:1999}
-C.~D.~Smith and E.~F.~Jones,  ``Load-Cycling in Cubic Press,'' in
-  \emph{Shock Compression of Condensed Matter-1999}, edited by M.~D.~F. et~al.,
-  AIP Conference Proceedings 505, American Institute of Physics, New York,
-  1999, pp. 651--654.
-
-\end{thebibliography}
 
 \endinput
 %%
