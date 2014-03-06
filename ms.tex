@@ -132,21 +132,27 @@ already imply a commitment to update from $p(\theta)$ to $p(\theta | \data)$
 once $\data$ becomes known.
 
 Computing the consequences of a posterior distribution can be a challenging
-task. Usually we want to marginalise out nuisance parameters, to compute
+task. Usually we want to marginalise away nuisance parameters, to compute
 particular posterior probabilities such as $P(\theta > 1.5)$, or to summarise
-the posterior distribution for easy communication with others.
+the posterior distribution for easy communication with others, for example by
+calculating credible intervals and stating that $a \leq \theta b$ with 95\%
+probability.
 Markov Chain Monte Carlo (MCMC) algorithms provide a general set of tools
 for achieving these goals. However, many standard MCMC algorithms are not
 capable of exploring complicated probability distributions in a reasonable time.
-Problems often occur due to multimodality, strong dependencies, and phase
+Problems often occur due to multiple modes, strong dependencies
+between parameters, and (less widely recognised, but also less commonly) phase
 transitions. Many different solutions have been suggested for overcoming these
-challenges. In this paper we will focus on Nested Sampling \citep{skilling}.
+challenges. This paper focuses on Nested Sampling \citep{skilling}.
 
 \section{Nested sampling}
 The key idea of Nested Sampling \citep{skilling} is that Bayesian computation
-should begin from the prior $\pi(\pars)$ and move through a sequence of
+should not solely be aimed at obtaining samples from the posterior distribution.
+By beginning from the prior $\pi(\pars)$ and moving through a sequence of
 distributions that successively compress the prior volume by a constant factor
-that is (approximately) known.
+that is (approximately) known, Nested Sampling can calculate posterior samples
+as well as the marginal likelihood or evidence
+$Z = \int p(\pars)p(\data = \data_{\rm actual} | \pars) \, d\pars$.
 
 
 \subsection{MCMC inside nested sampling}
