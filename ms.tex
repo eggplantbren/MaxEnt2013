@@ -129,7 +129,9 @@ MaxEnt updating, starting from the joint prior $p(\pars, \data)$ and applying
 the constraint $P(\data = \data_{\rm actual}) = 1$ \citep{caticha}. Note that
 this is not a ``derivation'' of Bayesian updating as the rules of probability
 already imply a commitment to update from $p(\theta)$ to $p(\theta | \data)$
-once $\data$ becomes known.
+once $\data$ becomes known. For convenience, once the data set has been
+established and attention turns to computation, the prior is denoted by
+$\pi(\theta)$ and the likelihood function is $L(\theta)$.
 
 Computing the consequences of a posterior distribution can be a challenging
 task. Usually we want to marginalise away nuisance parameters, to compute
@@ -199,19 +201,26 @@ successive constrained prior occupies approximately $\exp(-1)$ times as much
 prior mass (``volume'') as the previous constrained prior. This is strongly
 related to the algorithm known as ``simulated tempering''
 \citep{simulated_tempering}, but uses NS's
-sequence of intermediate distributions instead of an annealed sequence.
-Retaining ``old'' distributions in the mixture allows 
+sequence of intermediate distributions instead of an annealed sequence
+based on $\pi(\theta)L(\theta)^\beta$. Retaining ``old'' distributions in the
+mixture gives the particles a chance to explore more freely, perhaps escaping
+one mode in the distribution and moving to another.
+
+A multi-threaded, free software C++ implementation of Diffusive Nested Sampling
+is available online at {\tt http://github.com/eggplantbren/DNest3}.
 
 \section{Probabilistic Catalogs}
+Many questions in astronomy can be classified as ``source detection'' problems.
+Telescopes (whether optical, radio, or whatever) obtain some data, and we would
+like to use this data to infer the presence and properties of the objects in
+that part of the sky. Several different techniques and software packages have
+been developed for carrying this out \citep[e.g.][]{sextractor, dolphot}.
+However, this process
+can also be described as a Bayesian inference problem \citep{starfield}.
 The hypothesis space is the set of possible answers to the question
 ``how many objects are there, and what are their properties (positions, fluxes,
-etc)'' \citep{starfield}.
+etc)''. The prior 
 
-
-%\section{Reverberation Mapping}
-%Many objects in the universe are too distant to resolve, so we cannot simply
-%``see'' what is going on. Rather we must infer what is going on. Active Galactic
-%Nuclei (AGN) are a good example.
 
 \subsection{Models with known oversimplifications}
 Computing the posterior $p(\pars | \data)$ would yield overconfident results
@@ -278,6 +287,8 @@ Acknowledgements.
 % }
 
 \begin{thebibliography}{9}
+\bibitem[Bertin and
+Arnouts(1996)]{sextractor} Bertin, E., Arnouts, S.\ 1996.\ SExtractor: Software for source extraction.\ Astronomy and Astrophysics Supplement Series 117, 393-404.
 
 \bibitem[Brewer et al.(2013)]{starfield} Brewer, B.~J., 
 Foreman-Mackey, D., Hogg, D.~W.\ 2013.\ Probabilistic Catalogs for Crowded 
@@ -294,6 +305,9 @@ arXiv:0808.0012.
 \bibitem[Cox(1946)]{cox} Cox, R.~T.\ 1946.\ Probability, 
 Frequency and Reasonable Expectation.\ American Journal of Physics 14, 
 1-13. 
+
+\bibitem[Dolphin(2000)]{dolphot} Dolphin, A.~E.\ 2000, Publications of the
+Astronomical Society of the Pacific, 112, 1383 
 
 \bibitem[Feroz et al.(2009)]{multinest} Feroz, F., Hobson, M.~P., 
 Bridges, M.\ 2009.\ MULTINEST: an efficient and robust Bayesian inference 
