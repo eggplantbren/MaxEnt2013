@@ -206,7 +206,14 @@ based on $\pi(\theta)L(\theta)^\beta$. Retaining ``old'' distributions in the
 mixture gives the particles a chance to explore more freely, perhaps escaping
 one mode in the distribution and moving to another.
 
-A multi-threaded, free software C++ implementation of Diffusive Nested Sampling
+A key advantage of DNS over standard MCMC-based Nested Sampling is the performance
+on multimodal distributions. With DNS, if two particles are in two separate
+but identical modes, there is no need for any deleting or copying of particles.
+The two particles will simply continue exploring their own modes. A particle is
+only deleted if it is unable to keep up with the bulk of the other particles.
+This way, the diversity created by having multiple starting points is maintained
+for as long as possible. A multi-threaded, free software C++ implementation of
+DNS, called {\tt DNest3},
 is available online at {\tt http://github.com/eggplantbren/DNest3}.
 
 \section{Probabilistic Catalogs}
@@ -219,7 +226,10 @@ However, this process
 can also be described as a Bayesian inference problem \citep{starfield}.
 The hypothesis space is the set of possible answers to the question
 ``how many objects are there, and what are their properties (positions, fluxes,
-etc)''. The prior 
+etc)''. This problem has been addressed from a Bayesian point of view by several
+authors \citep[e.g.][]{2003MNRAS.338..765H}.
+
+
 
 
 \subsection{Models with known oversimplifications}
@@ -318,6 +328,9 @@ Astronomical Society 398, 1601-1614.
 M.~P.\ 2014.\ Bayesian analysis of radial velocity data of GJ667C with 
 correlated noise: evidence for only two planets.\ Monthly Notices of the 
 Royal Astronomical Society 437, 3540-3549. 
+
+\bibitem[Hobson 
+\& McLachlan(2003)]{2003MNRAS.338..765H} Hobson, M.~P., \& McLachlan, C.\ 2003, Monthly Notices of the Royal Astronomical Society, 338, 765 
 
 \bibitem[Jaynes and Bretthorst(2003)]{jaynes} Jaynes, E.~T., 
 Bretthorst, G.~L.\ 2003.\ Probability Theory.\ Probability Theory, by 
