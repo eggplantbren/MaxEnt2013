@@ -234,6 +234,19 @@ fields'', small patches of the sky where many stars are visible in an image.
 Each star would appear as a point source in the image, except for the effects
 of blurring (caused by either diffraction as the light enters the telescope,
 or by atmospheric fluctuations), and the images are also typically noisy.
+Since the number of stars $N$ is itself unknown, we use reversible jump
+MCMC {\it within} DNS to infer $N$.
+
+For the ``easy'' simulated data set containing 100 stars, the information
+$H$ was approximately 500 nats, whereas for the ``hard'' dataset the information
+was $\sim$2600 nats. In both cases, the upward part of the DNS run was
+straightforward. However, in the ``hard'' case the diffusion phase of DNS
+is very slow. Unfortunately, I am presently unaware of any Nested Sampling
+method that only moves upwards in likelihood but is able to correct for the
+use of imperfect MCMC. Variations of annealing or tempering such as
+``annealed importance sampling'' and ``linked importance sampling'' \citep{ais, lis}
+have both these properties, suggesting this may be possible with NS as well.
+
 
 
 
@@ -257,7 +270,7 @@ where $X_i \approx e^{-i}$ by construction.
 
 \begin{theacknowledgments}
 It is a pleasure to thank David W. Hogg (NYU), Daniel Foreman-Mackey (NYU),
-Fengji Hou (NYU), Anna Pancoast (UCSB), and
+Fengji Hou (NYU), Anna Pancoast (UCSB), Benjamin Pope (Oxford), and
 John Skilling (MaxEnt Data Consultants) for valuable discussions.
 \end{theacknowledgments}
 
