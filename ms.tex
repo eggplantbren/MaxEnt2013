@@ -235,7 +235,10 @@ Each star would appear as a point source in the image, except for the effects
 of blurring (caused by either diffraction as the light enters the telescope,
 or by atmospheric fluctuations), and the images are also typically noisy.
 Since the number of stars $N$ is itself unknown, we use reversible jump
-MCMC {\it within} DNS to infer $N$.
+MCMC {\it within} DNS to infer $N$. The model assumptions here are very similar
+to those suggested in \citep{massinf} for inferring positive additive
+distributions, but here the assumption that the underlying scene is composed
+of point sources is well justified, rather than a convenience.
 
 For the ``easy'' simulated data set containing 100 stars, the information
 $H$ was approximately 500 nats, whereas for the ``hard'' dataset the information
@@ -373,6 +376,9 @@ Importance Sampling.\ ArXiv Physics e-prints arXiv:physics/9803008.
 \bibitem[Neal(2005)]{lis} Neal, R.~M.\ 2005.\ Estimating 
 Ratios of Normalizing Constants Using Linked Importance Sampling.\ ArXiv 
 Mathematics e-prints arXiv:math/0511216. 
+
+\bibitem[Skilling(1998)]{massinf} Skilling, J.\ 1998.\ Massive 
+Inference and Maximum Entropy.\ Maximum Entropy and Bayesian Methods, 1. 
 
 \bibitem[\protect\citeauthoryear{Skilling}{2006}]{skilling} Skilling, J., 2006, Nested Sampling for General Bayesian Computation, Bayesian Analysis 4, pp. 833-860.
 
