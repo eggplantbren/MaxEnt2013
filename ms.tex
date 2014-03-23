@@ -128,10 +128,10 @@ Incidentally, Bayesian inference can be understood as a special case of
 MaxEnt updating, starting from the joint prior $p(\pars, \data)$ and applying
 the constraint $P(\data = \data_{\rm actual}) = 1$ \citep{caticha}. Note that
 this is not a ``derivation'' of Bayesian updating as the rules of probability
-already imply a commitment to update from $p(\theta)$ to $p(\theta | \data)$
+already imply a commitment to update from $p(\pars)$ to $p(\pars | \data)$
 once $\data$ becomes known. For convenience, once the data set has been
 established and attention turns to computation, the prior is denoted by
-$\pi(\theta)$ and the likelihood function is $L(\theta)$.
+$\pi(\pars)$ and the likelihood function is $L(\pars)$.
 
 Computing the consequences of a posterior distribution can be a challenging
 task. Usually we want to marginalise away nuisance parameters, to compute
@@ -153,8 +153,8 @@ should not solely be aimed at obtaining samples from the posterior distribution.
 By beginning from the prior $\pi(\pars)$ and moving through a sequence of
 distributions that successively compress the prior volume by a constant factor
 that is (approximately) known, Nested Sampling can calculate posterior samples
-as well as the marginal likelihood or evidence
-$Z = \int p(\pars)p(\data = \data_{\rm actual} | \pars) \, d\pars$.
+as well as the ``marginal likelihood'' or ``evidence''
+$\mathcal{Z} = \int \pi(\pars)L(\pars) \, d^n\pars$.
 
 
 \subsection{MCMC inside nested sampling}
