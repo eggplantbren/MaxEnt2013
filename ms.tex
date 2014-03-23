@@ -250,11 +250,26 @@ in an image along with their positions and brightnesses.\label{fig:data}}
 %\end{center}
 \end{figure}
 
+One measure of the scale of an inference problem is the information
+$\mathcal{H}$, defined as the KL divergence from the prior to the posterior:
+\begin{eqnarray}
+\mathcal{H} = \int p(\pars | \data) \log\left[\frac{p(\pars | \data)}{p(\pars)}\right]\, d^n\pars
+\end{eqnarray}
+An intuitive interpretation of $\mathcal{H}$ is that it measures how small
+the posterior volume is relative to the prior. For example, if the prior
+were uniform over a volume $V$ and the posterior were uniform over a smaller
+volume $V'$, then $\mathcal{H}$ would equal $\log(V/V')$. Nested Sampling allows
+$\mathcal{H}$ to be calculated.
+
 For the ``easy'' simulated data set containing 100 stars, the information
-$H$ was approximately 500 nats, whereas for the ``hard'' dataset the information
+was approximately 500 nats, whereas for the ``hard'' dataset the information
 was $\sim$2600 nats. In both cases, the upward part of the DNS run was
 straightforward. However, in the ``hard'' case the diffusion phase of DNS
-is very slow. Unfortunately, I am presently unaware of any Nested Sampling
+is very slow. While the time taken to compress from the prior to the posterior
+in the upwards phase of DNS is proportional to $\mathcal{H}$, the time taken to
+diffuse from the prior to the posterior in the second phase of DNS is
+proportional to $\mathcal{H}^2$.
+Unfortunately, I am presently unaware of any Nested Sampling
 method that only moves upwards in likelihood but is able to correct for the
 use of imperfect MCMC. Variations of annealing or tempering such as
 ``annealed importance sampling'' and ``linked importance sampling'' \citep{ais, lis}
